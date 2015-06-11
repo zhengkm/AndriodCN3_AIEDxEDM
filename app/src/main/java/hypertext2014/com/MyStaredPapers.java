@@ -289,9 +289,9 @@ public View getView(int position, View convertView, ViewGroup parent) {
 		//vh.tr = (TextView) convertView.findViewById(R.id.trackimage);
 		vh.date = (TextView) convertView.findViewById(R.id.text_first_char_hint);
 
-		vh.schedule = (ImageButton) convertView
-				.findViewById(R.id.ImageButton01);
+		vh.schedule = (ImageButton) convertView.findViewById(R.id.ImageButton01);
 
+		vh.schedule.setVisibility(View.GONE);
 		vh.star = (ImageButton) convertView
 				.findViewById(R.id.ImageButton02);
 
@@ -301,10 +301,10 @@ public View getView(int position, View convertView, ViewGroup parent) {
 		vh = (ViewHolder) convertView.getTag();
 	}
 
-	if (pList.get(position).scheduled.compareTo("yes") == 0)
-		vh.schedule.setImageResource(R.drawable.yes_schedule);
-	else
-		vh.schedule.setImageResource(R.drawable.no_schedule);
+//	if (pList.get(position).scheduled.compareTo("yes") == 0)
+//		vh.schedule.setImageResource(R.drawable.yes_schedule);
+//	else
+//		vh.schedule.setImageResource(R.drawable.no_schedule);
 
 	vh.schedule.setOnClickListener(this);
 	vh.schedule.setTag(pList.get(position).id+";"+position);
@@ -389,39 +389,39 @@ public void onClick(View v) {
 		in.putExtra("key","no");
 		startActivity(in);
 		break;
-	case R.id.ImageButton01:
-		ib = (ImageButton) v;
-		String s = ib.getTag().toString();
-		String[] st = s.split(";");
-		paperID = st[0];
-		pos = Integer.parseInt(st[1]);
-		type="schedule";
-		Conference.userID = getUserID();
-		if (Conference.userSignin) {
-			paperStatus = "";
-			callThread();
-			//type="";
-			//paperStatus = us2s.addScheduledPaper2Sever(paperID);
-			// if (getPaperScheduled(paperID).compareTo("no") == 0) {
-			/*
-			if (paperStatus.compareTo("yes") == 0) {
-				ib.setImageResource(R.drawable.yes_schedule);
-				updateUserPaperStatus(paperID, "yes", "schedule");
-				insertMyScheduledPaper(paperID);
-				scheduleClicked = true;
-			}
-			if (paperStatus.compareTo("no") == 0) {
-				ib.setImageResource(R.drawable.no_schedule);
-				updateUserPaperStatus(paperID, "no", "schedule");
-				deleteMyScheduledPaper(paperID);
-				scheduleClicked = false;
-			}
-			*/
-		} else {
-			CallSignin();
-		}
-		
-		break;
+//	case R.id.ImageButton01:
+//		ib = (ImageButton) v;
+//		String s = ib.getTag().toString();
+//		String[] st = s.split(";");
+//		paperID = st[0];
+//		pos = Integer.parseInt(st[1]);
+//		type="schedule";
+//		Conference.userID = getUserID();
+//		if (Conference.userSignin) {
+//			paperStatus = "";
+//			callThread();
+//			//type="";
+//			//paperStatus = us2s.addScheduledPaper2Sever(paperID);
+//			// if (getPaperScheduled(paperID).compareTo("no") == 0) {
+//			/*
+//			if (paperStatus.compareTo("yes") == 0) {
+//				ib.setImageResource(R.drawable.yes_schedule);
+//				updateUserPaperStatus(paperID, "yes", "schedule");
+//				insertMyScheduledPaper(paperID);
+//				scheduleClicked = true;
+//			}
+//			if (paperStatus.compareTo("no") == 0) {
+//				ib.setImageResource(R.drawable.no_schedule);
+//				updateUserPaperStatus(paperID, "no", "schedule");
+//				deleteMyScheduledPaper(paperID);
+//				scheduleClicked = false;
+//			}
+//			*/
+//		} else {
+//			CallSignin();
+//		}
+//
+//		break;
 	case R.id.ImageButton02:
 		ib = (ImageButton) v;
 		String s1 = ib.getTag().toString();
